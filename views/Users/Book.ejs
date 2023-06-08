@@ -1,0 +1,30 @@
+
+
+<html lang="en">
+  <%- include('../Header.ejs') %>
+ 
+  <body>
+    <%- include('../navigation.ejs') %>
+
+   <div class="passenger-Details">
+    <form action="/Book" method="POST">
+
+      <label for="Flight_Id">Flight_Id:</label>
+      <input type="number" id="Flight_Id" name="Flight_Id" required>
+
+      <label for="Passenger_Name">Passenger_Name:</label>
+      <input type="text" id="Passenger_Name" name="Passenger_Name" required>
+
+      <label for="Passenger_email">Passenger_email:</label>
+      <input type="text" id="Passenger_email" name="Passenger_email" required>
+
+      <label for="Passenger_Age">Passenger_Age:</label>
+      <input type="number" id="Passenger_Age" name="Passenger_Age" required>
+
+      <input type="submit" style="left: 150px; top:25px">
+
+    </form>
+   </div>
+  
+  </body>
+</html>

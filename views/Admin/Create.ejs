@@ -1,0 +1,24 @@
+<html lang="en">
+  <%- include('../Header.ejs') %>
+  <body>
+    <%- include('../navforAdmin.ejs') %>
+   <div class="create-Flight">
+    <form action="/Create" method="POST">
+      <label for="Name">Name:</label>
+      <input type="text" id="Name" name="Name" required>
+      <label for="Id">Id:</label>
+      <input type="number" id="Id" name="Id" required>
+      <label for="Departure">Departure:</label>
+      <input type="text" id="Departure" name="Departure" required>
+      <label for="Destination">Destination:</label>
+      <input type="text" id="Destination" name="Destination" required>
+      <label for="Departure_Date">Departure_Date:</label>
+      <input type="date" id="Departure_Date" name="Departure_Date" required>
+      <label for="Time">Time: </label>
+      <input type="text" id="Time" name="Time" required>
+      <input type="submit" style="left: 150px; top:25px">
+    </form>
+   </div>
+  
+  </body>
+</html>

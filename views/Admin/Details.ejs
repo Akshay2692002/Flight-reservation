@@ -1,0 +1,45 @@
+<html lang="en"> 
+ 
+  <%- include('../Header.ejs') %>
+  
+   
+  <body>
+    <%- include('../navforAdmin.ejs') %>
+   <div class="Flight content">
+    <form action="/Details" method="POST">
+     
+      <label for="Departure_Date">Departure_Date:</label>
+      <input type="date" id="Departure_Date" name="Departure_Date" required>
+      <label for="Time">Time: </label>
+      <input type="text" id="Time" name="Time" required>
+      
+      <input type="submit" style="left: 150px; top:25px">
+    </form>
+    <h2>All Flights</h2>
+    <% if (details.length > 0) { %>
+      <% details.forEach(flight => { %>
+       <% let date=flight.Departure_Date%>
+       <% let year=date.getFullYear()%>
+       <% let month = date.getMonth() + 1%>
+       <% let day = date.getDate(); %>
+       <% const formattedDate = `${year}-${month}-${day}`%>
+
+        <h3 class="Name"><%= flight.Name %></h3>
+        <ul>
+          <li>ID: <%= flight.Id %></li>
+          <li>Departure: <%= flight.Departure%></li>
+          <li>Destination: <%= flight.Destination%></li>
+          <li>Departure_Date: <%= formattedDate%></li>
+          <li>Time:<%=flight.Time%></li>
+        </ul>
+        
+        
+      <% }) %>
+      <% }else{ %>
+        <p>There are no flight to display...</p>
+        <% } %>
+   </div>
+
+   
+  </body>
+</html>

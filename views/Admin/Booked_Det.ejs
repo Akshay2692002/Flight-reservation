@@ -1,0 +1,24 @@
+
+<%- include('../Header.ejs') %>
+
+<%- include('../navforAdmin.ejs') %>
+
+<html lang="en"> 
+  <body>
+   <div class="Flight content">
+    <h2>Tickets Opted</h2>
+    <% if (user.length > 0) { %>
+      <% user.forEach(userDet => { %>
+        <h3 class="Name">ID: <%= userDet.Flight_Id %></h3>
+        <ul>
+          <li>Name: <%= userDet.Passenger_Name%></li>
+          <li>Email: <%= userDet.Passenger_email%></li>
+          <li>Age: <%= userDet.Passenger_Age%></li>
+        </ul>
+      <% }) %>
+      <% }else{ %>
+        <p>There are no flight to display...</p>
+        <% } %>
+   </div>
+  </body>
+</html>

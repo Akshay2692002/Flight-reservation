@@ -1,0 +1,50 @@
+<html lang="en"> 
+ 
+  <%- include('../Header.ejs') %>
+  
+   
+  <body>
+    <%- include('../navforAdmin.ejs') %>
+   <div class="Flight content">
+    <h2>All Flights</h2>
+    <% if (detail.length > 0) { %>
+      <% detail.forEach(flight => { %>
+        <% let date=flight.Departure_Date%>
+        <% let year=date.getFullYear()%>
+        <% let month = date.getMonth() + 1%>
+        <% let day = date.getDate(); %>
+        <% const formattedDate = `${year}-${month}-${day}`%>
+
+        <h3 class="Name"><%= flight.Name %></h3>
+        <ul>
+          <li>ID: <%= flight.Id %></li>
+          <li>Departure: <%= flight.Departure%></li>
+          <li>Destination: <%= flight.Destination%></li>
+          <li>Departure_Date: <%=formattedDate%></li>
+          <li>Time:<%=flight.Time%></li>
+        </ul>
+        <div>
+          <a class="delete" href="/Details" data-doc="<%=flight.id%>">Delete</a>
+        </div>
+        
+      <% }) %>
+      <% }else{ %>
+        <p>There are no flight to display...</p>
+        <% } %>
+   </div>
+
+   <script>
+    const deletes=document.querySelector('a.delete');
+    deletes.addEventListener ('click',(e)=>{
+      const endpoint=`/Delete/${deletes.dataset.doc}`;
+
+      fetch(endpoint,{
+        method:'DELETE',
+      })
+      .then((response)=> response.json())
+      .then((data)=> window.location.href = data.redirect)
+      .catch(err=> console.log(err));
+    })
+   </script>
+  </body>
+</html>
