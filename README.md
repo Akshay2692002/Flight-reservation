@@ -8,7 +8,7 @@ Functionality of the Admin:
 1.Add flight details -- Get the flight detail from the user and store it into the database.
 2.View flight details -- Parse through all the flight details and display it.
 3.Delete flight details -- Display the detail and enable Delete option that delete the data from the database.
-4.View all the booked tickets -- Displays the Bookeed tickets to the Admin.
+4.View all the booked tickets -- Displays the Booked tickets to the Admin.
 
 Functionality of the User:
 
